@@ -41,3 +41,25 @@
         a = a / 1000;
         return a;
     }
+    
+        static int GetDigits(int a, int big, int small)
+    {
+        int ten = 10;
+        if(big == small)
+        {
+            for(int x = 0; x < big; x++)
+            {
+                ten *= 10;
+            }
+            a = a % ten;
+            a = a / (ten/10);
+            return a;
+        }
+
+        else
+        {
+            //WIP
+        }
+
+        return 0;
+    }
