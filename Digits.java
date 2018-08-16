@@ -44,7 +44,7 @@
     
     static int GetDigits(int a, int big, int small)
     {
-        int ten = 10;
+        int ten = 10
         if(big == small)
         {
             for(int x = 0; x < big; x++)
@@ -58,7 +58,19 @@
 
         else
         {
-            //WIP
+            ten = 10;
+            for(int x = 0; x < big; x++)
+            {
+                ten *= 10;
+            }
+            a = a % ten;
+            ten = 10;
+            for(int x = 0; x < small; x++)
+            {
+                ten *= 10;
+            }
+            a = a / ten;
+            return a;
         }
 
         return 0;
