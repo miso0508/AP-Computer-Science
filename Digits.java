@@ -42,7 +42,7 @@
         return a;
     }
     
-        static int GetDigits(int a, int big, int small)
+    static int GetDigits(int a, int big, int small)
     {
         int ten = 10;
         if(big == small)
