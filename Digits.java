@@ -1,9 +1,13 @@
-    public static void main(String[] args) {
+class Main() 
+{
+    public static void main(String[] args) 
+    {
         int ones = OnesDigit(1234);
         int tens = TensOnesDigit(1234);
         int tensonly = TensDigit(1234);
         int hundredth = HundredthDigit(1234);
         int thousandth = ThousandthDigit(1234);
+        int getdigit = GetDigits(1235456789,4,2);
         System.out.println(ones);
         System.out.println(tens);
         System.out.println(tensonly);
@@ -44,7 +48,7 @@
     
     static int GetDigits(int a, int big, int small)
     {
-        int ten = 10
+        int ten = 10;
         if(big == small)
         {
             for(int x = 0; x < big; x++)
@@ -52,7 +56,7 @@
                 ten *= 10;
             }
             a = a % ten;
-            a = a / (ten/10);
+            a = a / (ten / 10);
             return a;
         }
 
@@ -65,13 +69,12 @@
             }
             a = a % ten;
             ten = 10;
-            for(int x = 0; x < small; x++)
+            for(int x = 0; x < small - 1; x++)
             {
                 ten *= 10;
             }
             a = a / ten;
             return a;
         }
-
-        return 0;
     }
+}
