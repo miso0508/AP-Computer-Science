@@ -55,13 +55,24 @@ public class Main
 
     public static String MoneytoText (int[] money)
     {
-        String text;
         int[] mref = new int[3];
         String[] digit = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+        String[] tens = {"","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+        String txt1 = digit[mref[0]] + "hundred and ";
+        String txt2 = tens[mref[1]]
+        String txt3 = " " + digit[mref[2]];
         for(int x = 3; x > 0; x--) {
             mref[3 - x] = (money[0] % (int) Math.pow(10, x) / (int) Math.pow(10, x - 1));
         }
-        return "";
+        
+        if(mref[0] == 0)
+            txt1 = "";
+        if(mref[1] == 0)
+            txt2 = "";
+        if(mref[2] == 0)
+            txt3 = "";
+        
+        return txt1 + txt2 + txt3;
     }
 
     public static boolean IsGreaterThan (int[] m1, int[] m2)
