@@ -55,22 +55,32 @@ public class Main
 
     public static String MoneytoText (int[] money)
     {
-        int[] mref = new int[3];
+        int[] mref = new int[5];
         String[] digit = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
         String[] tens = {"","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
-        String txt1 = digit[mref[0]] + "hundred and ";
-        String txt2 = tens[mref[1]]
-        String txt3 = " " + digit[mref[2]];
+        
         for(int x = 3; x > 0; x--) {
             mref[3 - x] = (money[0] % (int) Math.pow(10, x) / (int) Math.pow(10, x - 1));
         }
-        
+        for(int x = 2; x > 0; x--) {
+            mref[5 - x] = (money[1] % (int) Math.pow(10, x) / (int) Math.pow910, x - 1));
+        }
+        String txt1 = digit[mref[0]] + "hundred and ";
+        String txt2 = tens[mref[1]]
+        String txt3 = " " + digit[mref[2]];
+        String txt4 = " " + tens[mref[3]];
+        String txt5 = digit[mref[4]] + " ";
+            
         if(mref[0] == 0)
             txt1 = "";
         if(mref[1] == 0)
             txt2 = "";
         if(mref[2] == 0)
             txt3 = "";
+        if(mref[3] == 0)
+            txt4 = "";
+        if(mref[4] == 0)
+            txt5 == "";
         
         return txt1 + txt2 + txt3;
     }
