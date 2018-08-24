@@ -82,7 +82,7 @@ public class Main
         if(mref[4] == 0)
             txt5 == "";
         
-        return txt1 + txt2 + txt3;
+        return txt1 + txt2 + txt3 + " dollars and " + txt4 + txt5 + " cents";
     }
 
     public static boolean IsGreaterThan (int[] m1, int[] m2)
