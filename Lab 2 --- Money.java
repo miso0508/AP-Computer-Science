@@ -57,20 +57,30 @@ public class Main
     {
         int[] mref = new int[5];
         String[] digit = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
+        String[] teens = {"","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
         String[] tens = {"","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
-        
+        String[] txt = {"", digit[mref[0]] + "hundred and ", tens[mref[1]] + "", " " + digit[mref[2]], " " + tens[mref[3]], digit[mref[4]] + " "};
         for(int x = 3; x > 0; x--) {
-            mref[3 - x] = (money[0] % (int) Math.pow(10, x) / (int) Math.pow(10, x - 1));
+            mref[3 - x] = money[0] % (int)Math.pow(10, x) / (int)Math.pow(10, x - 1);
         }
         for(int x = 2; x > 0; x--) {
-            mref[5 - x] = (money[1] % (int) Math.pow(10, x) / (int) Math.pow910, x - 1));
+            mref[5 - x] = money[1] % (int)Math.pow(10, x) / (int)Math.pow(10, x - 1);
         }
+        for(int x = 0; x < 5; x++) {
+            if(mref[x] == 0)
+                txt[x+1] = "";
+        }
+        if(mref[1] == 1 && mref[2] > 10 && mref[2] < 20) {
+            txt[2] = teens[mref[2]] + "";
+            txt[3] = ""
+        }            
+        /*
         String txt1 = digit[mref[0]] + "hundred and ";
-        String txt2 = tens[mref[1]]
+        String txt2 = tens[mref[1]] + "";
         String txt3 = " " + digit[mref[2]];
         String txt4 = " " + tens[mref[3]];
         String txt5 = digit[mref[4]] + " ";
-            
+
         if(mref[0] == 0)
             txt1 = "";
         if(mref[1] == 0)
@@ -80,9 +90,9 @@ public class Main
         if(mref[3] == 0)
             txt4 = "";
         if(mref[4] == 0)
-            txt5 == "";
-        
-        return txt1 + txt2 + txt3 + " dollars and " + txt4 + txt5 + " cents";
+            txt5 = "";
+        */  
+        return txt[1] + txt[2] + txt[3] + " dollars and " + txt[4] + txt[5] + " cents";
     }
 
     public static boolean IsGreaterThan (int[] m1, int[] m2)
