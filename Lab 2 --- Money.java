@@ -55,44 +55,41 @@ public class Main
 
     public static String MoneytoText (int[] money)
     {
-        int[] mref = new int[5];
+               int[] mref = new int[5];
+
         String[] digit = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
         String[] teens = {"","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
         String[] tens = {"","Ten","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
-        String[] txt = {"", digit[mref[0]] + "hundred and ", tens[mref[1]] + "", " " + digit[mref[2]], " " + tens[mref[3]], digit[mref[4]] + " "};
+
         for(int x = 3; x > 0; x--) {
             mref[3 - x] = money[0] % (int)Math.pow(10, x) / (int)Math.pow(10, x - 1);
         }
         for(int x = 2; x > 0; x--) {
             mref[5 - x] = money[1] % (int)Math.pow(10, x) / (int)Math.pow(10, x - 1);
         }
+
+        System.out.println(mref[0] + " " + mref[1] + " " + mref[2] + " " + mref[3] + " " + mref[4]);
+
+        String txt1 = digit[mref[0]] + "hundred and ";
+        String txt2 = tens[mref[1]] + "";
+        String txt3 = " " + digit[mref[2]] + " dollars and ";
+        String txt4 = tens[mref[3]] + " ";
+        String txt5 = digit[mref[4]] + " cents";
+        String[] txt = {"",txt1,txt2,txt3,txt4,txt5};
+
         for(int x = 0; x < 5; x++) {
             if(mref[x] == 0)
                 txt[x+1] = "";
         }
-        if(mref[1] == 1 && mref[2] > 10 && mref[2] < 20) {
-            txt[2] = teens[mref[2]] + "";
-            txt[3] = ""
-        }            
-        /*
-        String txt1 = digit[mref[0]] + "hundred and ";
-        String txt2 = tens[mref[1]] + "";
-        String txt3 = " " + digit[mref[2]];
-        String txt4 = " " + tens[mref[3]];
-        String txt5 = digit[mref[4]] + " ";
-
-        if(mref[0] == 0)
-            txt1 = "";
-        if(mref[1] == 0)
-            txt2 = "";
-        if(mref[2] == 0)
-            txt3 = "";
-        if(mref[3] == 0)
-            txt4 = "";
-        if(mref[4] == 0)
-            txt5 = "";
-        */  
-        return txt[1] + txt[2] + txt[3] + " dollars and " + txt[4] + txt[5] + " cents";
+        if(mref[1] == 1 && mref[2] > 0 && mref[2] < 10) {
+            txt[2] = "";
+            txt[3] = " " + teens[mref[2]] + " dollars and ";
+        }
+        if(mref[3] == 1 && mref[4] > 0 && mref[4] < 10) {
+            txt[4] = "";
+            txt[5] = teens[mref[4]] + " cents";
+        }
+        return txt[1] + txt[2] + txt[3] + txt[4] + txt[5];
     }
 
     public static boolean IsGreaterThan (int[] m1, int[] m2)
