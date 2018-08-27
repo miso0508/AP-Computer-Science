@@ -30,7 +30,6 @@ public class Main
             m[0] += (m[1]/100);
             m[1] %= 100;
             return m;
-        }
         else
             return m;
     }
@@ -55,7 +54,7 @@ public class Main
 
     public static String MoneytoText (int[] money)
     {
-               int[] mref = new int[5];
+        int[] mref = new int[5];
 
         String[] digit = {"","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
         String[] teens = {"","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"};
@@ -67,7 +66,8 @@ public class Main
         for(int x = 2; x > 0; x--) {
             mref[5 - x] = money[1] % (int)Math.pow(10, x) / (int)Math.pow(10, x - 1);
         }
-
+        {1,1,7,1,9}
+        [0,1,2,3,4]
         System.out.println(mref[0] + " " + mref[1] + " " + mref[2] + " " + mref[3] + " " + mref[4]);
 
         String txt1 = digit[mref[0]] + "hundred and ";
