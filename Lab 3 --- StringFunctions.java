@@ -7,17 +7,17 @@ public class Main
       
     } 
     
-    public static int SpaceCount(String s)
+    static int SpaceCount(String s)
     {
         int spacecount = 0;
         for(int x = 0; x < s.length(); x++) {
             if(s.substring(x,x+1) == " ")
                 spacecount++;
-        }      
+        }
         return spacecount;
     }
-    
-    public static int VowelCount(String s)
+
+    static int VowelCount(String s)
     {
         int vowelcount = 0;
         s = s.toLowerCase();
@@ -27,6 +27,20 @@ public class Main
         }
         return vowelcount;
     }
-    
-    public static int LetterCount(String s)
+
+    static int LetterCount(String s, String letter)
+    {
+        int lettercount = 0;
+        s = s.toLowerCase();
+        String[] letters = new String[s.length()];
+        for(int x = 0; x < s.length(); x++) {
+            letters[x] = s.substring(x,x+1);
+        }
+        for(String element: letters) {
+            if(element == letter)
+                lettercount++;
+        }
+
+        return lettercount;
+    }
 }
