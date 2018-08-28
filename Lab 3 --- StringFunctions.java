@@ -4,7 +4,9 @@ public class Main
 {
     public static void main (String[] args)
     {
-      
+        System.out.println(SpaceCount("He llo")); //Ans: 1
+        System.out.println(VowelCount("Hello")); //Ans: 2
+        System.out.println(LetterCount("Helllo","l")); //Ans: 3
     } 
     
     static int SpaceCount(String s)
