@@ -44,6 +44,24 @@ public class Main
                 lettercount += 1;
         }
         return lettercount;
-
     }
+	
+		static String beforeString(String s, String sub)
+		{
+			int index = s.indexOf(sub);
+			if(index == -1)
+				return s;
+			else 
+				return s.substring(0,index);
+		}
+	
+		static String AfterString(String s, String sub)
+		{
+			int index = s.indexOf(sub) + (sub.length() - 1);
+			if(index == -1)
+				return s;
+			else
+				return s.substring(index);
+		}
+	
 }
