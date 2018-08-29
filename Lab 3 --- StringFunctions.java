@@ -46,7 +46,7 @@ public class Main
         return lettercount;
     }
 	
-		static String beforeString(String s, String sub)
+		static String BeforeString(String s, String sub)
 		{
 			int index = s.indexOf(sub);
 			if(index == -1)
@@ -62,6 +62,23 @@ public class Main
 				return s;
 			else
 				return s.substring(index);
+		}
+	
+		static string CapVowel(String s)
+		{
+			String[] letters = new String[s.length()];
+			for(int x = 0; x < s.length(); x++) {
+				letters[x] = s.substring(x,x+1);
+			}
+			for(int x = 0; x < s.length(0; x++) {
+				if(letters[x].compareTo("a") == 0 || letters[x].compareTo("e") == 0 || letters[x].compareTo("i") == 0 || letters[x].compareTo("o") == 0 || letters[x].compareTo("u") == 0)
+					letters[x] = letters[x].toUpperCase();
+			}
+			s = "";
+			for(int x = 0; x < s.length(); x++) {
+				s += letters[x];
+			}
+			return s;
 		}
 	
 }
