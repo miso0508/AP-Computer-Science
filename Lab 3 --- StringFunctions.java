@@ -81,7 +81,7 @@ public class Main
 			return s;
 		}
 					
-		static String CapFirstWord(String s)
+		static String capFirstWord(String s)
 		{
 			String[] l = new String[s.length()];
 			for(int x = 0; x < s.length(); x++) {
@@ -98,7 +98,7 @@ public class Main
 				}
 			}
 		}				
-}
+					}
 					
 					
 					
