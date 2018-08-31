@@ -80,5 +80,36 @@ public class Main
 			}
 			return s;
 		}
-	
+					
+		static String CapFirstWord(String s)
+		{
+			String[] l = new String[s.length()];
+			for(int x = 0; x < s.length(); x++) {
+				l[x] = s.substring[x,x+1];
+			}
+			l[0] = l[0].toUpperCase();
+			for(int c = 1; c < l.length(); c++) {
+				if(l[c].compareTo(" ") == 0) {
+				}
+				else {
+					if(l[c].compareTo(".") == 0) {
+						l[c+2] = l[c+2].toUpperCase();
+					}
+				}
+			}
+		}
+					
 }
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
