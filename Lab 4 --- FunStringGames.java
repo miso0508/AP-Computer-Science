@@ -30,12 +30,8 @@ public class Main
     int xcount = 0;
     int points = 0;
     for(int x = 0; x < s.length(); x++) {
-      while(s.substring(x,x+1) == "X") {
+      if(s.substring(x,x+1) == "X" && s.substring(x+1,x+2) != "O")
         xcount += 1;
-        x += 1;
-      }
-      points += xcount - 1;
-      
     }
     
   }
