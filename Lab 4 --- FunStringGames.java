@@ -6,6 +6,8 @@ public class Main
   {
      String one = "XOXOXOXOXO";
      System.out.println(stage1(one)); // -5 points
+     String two = "XXOOXXOOXXOO";
+     System.out.println(stage2(two)); // 0 points
   }
   
   public static int stage1(String s)
@@ -32,8 +34,11 @@ public class Main
     for(int x = 0; x < s.length(); x++) {
       if(s.substring(x,x+1) == "X" && s.substring(x+1,x+2) != "O")
         xcount += 1;
+      if(s.substring(x,x+1) == "O" && s.substring(x+1,x+2) != "X")
+        ocount += 1;
     }
-    
+    points = xcount - ocount;
+    return points;
   }
   
 }
