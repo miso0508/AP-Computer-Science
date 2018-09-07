@@ -2,7 +2,7 @@ package com.company;
 
 public class Main
 {
-  public static void main (String[] args)
+    public static void main (String[] args)
     {
         String one = "XOXOXOXOXO";
         System.out.println(stage1(one)); // -5 points
