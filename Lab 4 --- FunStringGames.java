@@ -50,10 +50,9 @@ public class Main
     public static int stage3(String s)
     {
         int points = 0;
-        int c = -1;
+        int c = 0;
         boolean indexOutOfRangeException = false; // s.length() < c
         while(!indexOutOfRangeException) {
-            c++;
             if(c > s.length() - 4) indexOutOfRangeException = true;
             else indexOutOfRangeException = false;
 
@@ -75,8 +74,27 @@ public class Main
             }
             if(!indexOutOfRangeException)
                 System.out.println(s.substring(c,c+1) + " " + s.substring(c+1,c+2) + " " + s.substring(c+2,c+3) + " " + s.substring(c+3,c+4) + " ");
+            c += 4;
         }
         return points;
+    }
+    
+    public static int intParse(String s)
+    {
+        //s = 123456789;
+        String[] num = {"0","1","2","3","4","5","6","7","8","9"};
+        int[] rv = new int[s.length()];
+        int val;
+        boolean indexOutOfRange = false;
+        for(int i = 0; i < s.length(); i++) {
+            if(i > s.length()) indexOutOfRange = true;
+            else indexOutOfRange = false;
+            for(int x = 0; x < 10; x++) {
+                if(!indexOutOfRange && s.substring(i,i+1).compareTo(num[x]) == 0)
+                    rv[i] = x;
+            }
+        }
+        
     }
   
 }
