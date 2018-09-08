@@ -11,6 +11,8 @@ public class Main
         System.out.println(stage2(two)); // 5 points
         String three = "OXOXOXOX";
         System.out.println(stage3(three)); // 4 points
+        String num = "12345";
+        System.out.println(intParse(num));
     }
 
     public static int stage1(String s)
@@ -87,7 +89,7 @@ public class Main
         //s = 123456789;
         String[] num = {"0","1","2","3","4","5","6","7","8","9"};
         int[] rv = new int[s.length()];
-        int val;
+        int val = 0;
         boolean indexOutOfRange = false;
         for(int i = 0; i < s.length(); i++) {
             if(i > s.length()) indexOutOfRange = true;
@@ -97,7 +99,10 @@ public class Main
                     rv[i] = x;
             }
         }
-        return 0;
+        for(int i = 0; i < s.length(); i++) {
+            val += rv[i] * Math.pow(10,s.length() - 1 - i);
+        }
+        return val;
     }
 
 }
