@@ -69,14 +69,14 @@ public class Main
     {
         int min = 0, max = 0;
         boolean isBigger = false;
-        if(a.length() > b.length()) {
+        if(a.length > b.length) {
             max = a.length();
             min = b.length();
             isBigger = true;
         }
         else {
-            max = b.length();
-            min = a.length();
+            max = b.length;
+            min = a.length;
         }
         int[] rv = new int[max];
         for(int x = 0; x < min; x++) {
@@ -94,7 +94,7 @@ public class Main
     public static String prettyPrint(int[] a)
     {
         String rv = "{ ";
-        for(int x = 0; x < a.length(); x++) {
+        for(int x = 0; x < a.length; x++) {
             rv += a[x] + ", ";
         }
         rv += "}";
@@ -103,7 +103,32 @@ public class Main
     
     public static int[] copy(int[] a)
     {
-        
+        int[] c = new int[a.length];
+        for(int x = 0; x < a.length; x++) {
+            c[x] = a[x];
+        }
+        return c;
     }
-     
+    
+    public static int[] resize(int[] a, int newLength)
+    {
+        int[] rv = new int[newLength];
+        boolean indexOutOfRange = false;
+        for(int x = 0; x < newLength; x++) {
+            if(x > a.length) {
+                indexOutOfRange = true;
+                rv[x] = 0;
+            }
+            rv[x] = a[x];
+        }
+    }
+    
+    public static int[] append(int[] a, int[] b)
+    {
+        int[] rv = new int[a.length + b.length];
+        for(int x = 0; x < a.length + b.length; x++) {
+            
+        }
+    }
+    
 }
