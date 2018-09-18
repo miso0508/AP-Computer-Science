@@ -191,12 +191,9 @@ public class Main
     public static int[] merge(int[] a, int[] b)
     {
         int[] rv = new int[a.length + b.length];
-        for(int x = 0; x < a.length + b.length; x++) {
+        for(int x = 0; x < rv.length; x++) {
             
         }
-        
-        
-        return rv;
     }
 
 
