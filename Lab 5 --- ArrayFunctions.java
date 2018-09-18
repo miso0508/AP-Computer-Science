@@ -125,9 +125,24 @@ public class Main
     {
         if(a == null && b == null)
             return null;
-
-        int[] rv = new int[a.length + b.length];
-        
+        int[] rv = {0};
+        if(a != null && b == null) {
+            rv = new int[a.length];
+            for(int x = 0; x < rv.length; x++)
+                rv[x] = a[x];
+        }
+        if(b != null && a == null) {
+            rv = new int[b.length];
+             for(int x = 0; x < rv.length; x++)
+                rv[x] = b[x];
+        }
+        if(a != null && b != null) {
+            rv = new int[a.length + b.length];
+             for(int x = 0; x < a.length; x++)
+                rv[x] = a[x];
+             for(int x = a.length; x < rv.length; x++)
+                rv[x] = a[x];
+        }     
         return rv;
     }
 
