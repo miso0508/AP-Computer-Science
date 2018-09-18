@@ -49,10 +49,8 @@ public class Main
     {
         if(a < b)
             return a;
-        if(a > b)
-            return b;
         else
-            return a;
+            return b;
     }
 
     public static int min(int[] a)
@@ -113,13 +111,11 @@ public class Main
     public static int[] resize(int[] a, int newLength)
     {
         int[] rv = new int[newLength];
-        boolean indexOutOfRange = false;
         for(int x = 0; x < newLength; x++) {
-            if(x > a.length) {
-                indexOutOfRange = true;
+            if(x > a.length - 1) {
                 rv[x] = 0;
             }
-            if(indexOutOfRange == false)
+            else
                 rv[x] = a[x];
         }
         return rv;
@@ -127,23 +123,11 @@ public class Main
 
     public static int[] append(int[] a, int[] b)
     {
-        int[] rv = new int[a.length + b.length];
-        if(a != null) {
-            for (int x = 0; x < a.length; x++) {
-                rv[x] = a[x];
-            }
-        }
-        if(b != null) {
-            for (int x = a.length; x < b.length; x++) {
-                if (x < b.length)
-                    rv[x] = b[x];
-                else
-                    rv[x] = 0;
-            }
-        }
-        if(a == null && b == null) {
+        if(a == null && b == null)
             return null;
-        }
+
+        int[] rv = new int[a.length + b.length];
+        
         return rv;
     }
 
@@ -192,8 +176,12 @@ public class Main
     {
         int[] rv = new int[a.length + b.length];
         for(int x = 0; x < rv.length; x++) {
-            
+            if(a[x] < b[x])
+                rv[x] = a[x];
+            else
+                rv[x] = b[x];
         }
+        return rv;
     }
 
 
