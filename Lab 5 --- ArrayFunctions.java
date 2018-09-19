@@ -189,12 +189,19 @@ public class Main
 
     public static int[] merge(int[] a, int[] b)
     {
+        // { 1 2 3 4 5 6 } { 2 5 7 9 10 }
+        // { 
+        // x = 0
         int[] rv = new int[a.length + b.length];
         for(int x = 0; x < rv.length; x++) {
-            if(a[x] < b[x])
-                rv[x] = a[x];
-            else
-                rv[x] = b[x];
+            for(int s = 0; a[s] <= b[x]; s += 0) {
+                rv[s] = a[s];
+                s++;
+                if(a[s] > b[x]) {
+                    rv[s] = b[x];
+                    x++
+                }
+            }
         }
         return rv;
     }
