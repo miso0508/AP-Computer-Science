@@ -187,19 +187,22 @@ public class Main
         return rv;
     }
 
-    public static int[] merge(int[] a, int[] b)
+   public static int[] merge(int[] a, int[] b)
     {
         // { 1 2 3 4 5 6 } { 2 5 7 9 10 }
         // { 
         // x = 0
         int[] rv = new int[a.length + b.length];
         for(int x = 0; x < rv.length; x++) {
-            for(int s = 0; a[s] <= b[x]; s += 0) {
-                rv[s] = a[s];
+            for(int s = 0; s < rv.length; s += 0) {
+                if(a[s] <= b[x]) {
+                    rv[s] = a[s];
+                }
                 s++;
                 if(a[s] > b[x]) {
                     rv[s] = b[x];
-                    x++
+                    x++;
+                    break;
                 }
             }
         }
