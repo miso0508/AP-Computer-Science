@@ -91,11 +91,14 @@ public class Main
 
     public static String pp(int[] a)
     {
-        String rv = "{ ";
-        for(int x = 0; x < a.length; x++) {
-            rv += a[x] + ", ";
+        String rv = "{";
+        if(a != null) {
+            for (int x = 0; x < a.length; x++) {
+                rv += a[x] + ",";
+            }
+            rv += "}";
         }
-        rv += "}";
+        else return null;
         return rv;
     }
 
@@ -125,43 +128,29 @@ public class Main
     {
         if(a == null && b == null)
             return null;
-        int[] rv = {0};
-        if(a != null && b == null) {
-            rv = new int[a.length];
-            for(int x = 0; x < rv.length; x++)
-                rv[x] = a[x];
-        }
-        if(b != null && a == null) {
-            rv = new int[b.length];
-             for(int x = 0; x < rv.length; x++)
-                rv[x] = b[x];
-        }
-        if(a != null && b != null) {
-            rv = new int[a.length + b.length];
-             for(int x = 0; x < a.length; x++)
-                rv[x] = a[x];
-             for(int x = a.length; x < rv.length; x++)
-                rv[x] = a[x];
-        }     
+        if(a == null)
+            a = new int[0];
+        if(b == null)
+            b = new int[0];
+
+        int[] rv = new int[a.length + b.length];
+        for(int x = 0; x < a.length; x++)
+            rv[x] = a[x];
+        for (int x = a.length; x < rv.length; x++)
+            rv[x] = b[x - a.length];
         return rv;
     }
 
     public static int[] subArray(int[]a, int firstIncluded, int firstExcluded)
     {
+        if(firstExcluded <= firstIncluded)
+            return null;
         int[] rv = new int[firstExcluded - firstIncluded];
-        boolean indexOutOfBounds = false;
         for(int x = firstIncluded; x < firstExcluded; x++)
         {
-            if(x > firstExcluded) {
-                indexOutOfBounds = true;
-                break;
-            }
-            else rv[x] = a[x];
+            rv[x - firstIncluded] = a[x];
         }
-        if(indexOutOfBounds == true)
-            return null;
-        else
-            return rv;
+        return rv;
     }
 
     public static void makeSorted(int[] a)
@@ -169,7 +158,7 @@ public class Main
         int temp = 0;
         for(int q = 0; q < a.length; q++) {
             for(int w = q + 1; w < a.length; w++) {
-                if(a[q] < a[w]) {
+                if(a[q] > a[w]) {
                     temp = a[w];
                     a[w] = a[q];
                     a[q] = temp;
@@ -187,27 +176,38 @@ public class Main
         return rv;
     }
 
-   public static int[] merge(int[] a, int[] b)
+    public static int[] merge(int[] a, int[] b)
     {
-        // { 1 2 3 4 5 6 } { 2 5 7 9 10 }
-        // { 
-        // x = 0
+        //a = {1,5,3,7,2,65,8}
+        //d = {1,2,3,4}
         int[] rv = new int[a.length + b.length];
-        for(int x = 0; x < rv.length; x++) {
-            for(int s = 0; s < rv.length; s += 0) {
-                if(a[s] <= b[x]) {
-                    rv[s] = a[s];
-                }
-                s++;
-                if(a[s] > b[x]) {
-                    rv[s] = b[x];
-                    x++;
-                    break;
-                }
+        int y = 0;
+        for(int q = 0; q < rv.length; q++) {
+            if(q > a.length - 1) {
+                for(int x = y; x < b.length; x++)
+                    rv[x] = b[x];
+                break;
+            }
+            if(q > b.length - 1) {
+                for(int x = y; x < a.length; x++)
+                    rv[x] = a[x];
+                break;
+            }
+            if(a[q] < b[q]) {
+                rv[y] = a[q];
+                y++;
+            }
+            if(b[q] < a[q]) {
+                rv[y] = b[q];
+                y++;
+            }
+            if(a[q] == b[q]) {
+                rv[y] = a[q];
+                rv[y+1] = b[q];
+                y = y + 2;
             }
         }
         return rv;
     }
-
 
 }
