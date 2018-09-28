@@ -117,7 +117,7 @@ public class HelloWorld
                inBound = true;
             else
                inBound = false;
-            if(xy[1] == Math.floor(xy[1]) && xy[1] == Math.ceil(xy[1])) {
+            if(xy[1] == Math.floor(xy[1]) && xy[1] == Math.ceil(xy[1]) && inBound == true) {
                isInt = true;
                System.out.println(xy[0]);
                System.out.println(xy[1]);
