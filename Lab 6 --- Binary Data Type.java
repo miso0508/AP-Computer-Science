@@ -1,9 +1,9 @@
-package com.company;
 
-public class Main {
-
+import java.lang.Math;
+public class HelloWorld
+{
     public static void main(String[] args) {
-        int[] b = intToBinary(-127);
+        int[] b = doubleToBinary(128);
         for(int x = 0; x < 8; x++)
             System.out.print(b[x]);
     }
@@ -103,22 +103,29 @@ public class Main {
         return binary;
     }
     
-    static double[] fx(int ans)
+    static double[] fx(double ans)
     {
         boolean isInt = false;
+      	boolean inBound = false;
         double[] xy = new double[2];
         for(int e = -8; e <= 7; e++) {
             xy[0] = e;
-            xy[1] = ans / Math.pow(2,x);
-            if(xy[1] > Math.floor(xy[1]) && xy[1] < Math.ceil(xy[1])
+            xy[1] = ans / Math.pow(2,e);
+            if(xy[1] > Math.floor(xy[1]) && xy[1] < Math.ceil(xy[1]))
                isInt = false;
-            else {
+          	if(xy[1] >= -8.0 && xy[1] <= 7.0)
+               inBound = true;
+            else
+               inBound = false;
+            if(xy[1] == Math.floor(xy[1]) && xy[1] == Math.ceil(xy[1])) {
                isInt = true;
+               System.out.println(xy[0]);
+               System.out.println(xy[1]);
                break;
             }
         }
         
-        if(isInt = true)
+        if(isInt = true && inBound == true)
             return xy;
         else {
             xy[0] = 0;
