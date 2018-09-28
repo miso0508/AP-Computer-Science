@@ -106,7 +106,7 @@ public class HelloWorld
     static double[] fx(double ans)
     {
         boolean isInt = false;
-      	boolean inBound = false;
+        boolean inBound = false;
         double[] xy = new double[2];
         for(int e = -8; e <= 7; e++) {
             xy[0] = e;
@@ -114,9 +114,9 @@ public class HelloWorld
             if(xy[1] > Math.floor(xy[1]) && xy[1] < Math.ceil(xy[1]))
                isInt = false;
           	if(xy[1] >= -8.0 && xy[1] <= 7.0)
-               inBound = true;
+                inBound = true;
             else
-               inBound = false;
+                inBound = false;
             if(xy[1] == Math.floor(xy[1]) && xy[1] == Math.ceil(xy[1]) && inBound == true) {
                isInt = true;
                System.out.println(xy[0]);
