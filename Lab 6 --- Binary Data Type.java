@@ -91,20 +91,39 @@ public class Main {
     static int[] doubleToBinary(double a)
     {
         int[] binary = new int[8];
-        double y = a;
+        double[] xy = fx(a);
+        int[] exp_temp = new int[8];
         int exp, mantissa;
-        exp = (int)(Math.log(a) / Math.log(2));
-        if(a < 0) {
-            binary[4] = 1;
-        }
-        else {
-            binary[4] = 0;
-            for(int x = 7; x >= 1; x--) {
-                if(a % x == 0)
-                    mantissa = x;
-            }
-        }
+        exp = (int)(xy[0]);
+        mantissa = (int)(xy[1]);
+        binary = intToBinary(mantissa);
+        exp_temp = intToBinary(exp);
+        for(int x = 7; x >= 4; x--)
+            binary[7-x] = exp_temp[x];
         return binary;
     }
     
+    static double[] fx(int ans)
+    {
+        boolean isInt = false;
+        double[] xy = new double[2];
+        for(int e = -8; e <= 7; e++) {
+            xy[0] = e;
+            xy[1] = ans / Math.pow(2,x);
+            if(xy[1] > Math.floor(xy[1]) && xy[1] < Math.ceil(xy[1])
+               isInt = false;
+            else {
+               isInt = true;
+               break;
+            }
+        }
+        
+        if(isInt = true)
+            return xy;
+        else {
+            xy[0] = 0;
+            xy[1] = 0;
+            return xy;
+        }
+    }    
 }
