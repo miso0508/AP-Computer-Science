@@ -123,8 +123,7 @@ public class HelloWorld
                System.out.println(xy[1]);
                break;
             }
-        }
-        
+        }     
         if(isInt = true && inBound == true)
             return xy;
         else {
