@@ -9,8 +9,8 @@ public class Main
     
     static int[] createStack()
     {
-        int[] stack = new int[101];
-        stack[0] = 0;
+        int[] stack = new int[103];
+        stack[0] = 101;
         return stack;
     }
     
@@ -18,8 +18,10 @@ public class Main
     {
         int[] e = stack;
         stack = new int[e.length + 1];
-        for(int x = 0; x < stack.length; x++)
+        for(int x = 0; x < e.length; x++)
             stack[x] = e[x];
+        stack[0] += 1;
+        stack[stack.length - 1] = 0;
         stack[e.length] = data;
     }
     
