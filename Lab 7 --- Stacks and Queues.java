@@ -32,6 +32,22 @@ public class Main
         System.out.println(prettyPrintStack(restroomList));
         
         //TASK 3
+        int[] q = createQueue();
+        for(int x = 9; x >= 3; x--)
+            enqueue(q, x);
+        dequeue(q);
+        dequeue(q);
+        dequeue(q);
+        //Value of 3rd dequeue = 7
+        for(int x = 1; x <= 4; x++)
+            enqueue(q,x);
+        dequeue(q);
+        dequeue(q);
+        dequeue(q);
+        dequeue(q);
+        dequeue(q);
+        //Value of 5th dequeue = 1
+        System.out.println(prettyPrintQueue(q));
         
     }
     
@@ -92,6 +108,37 @@ public class Main
             queue[queue[0]] = data;
         }
     }
+    
+    static int dequeue(int[] queue)
+    {
+        int temp = queue[1];
+        for(int x = 1; x <= a[0]; x++) {
+            a[x] = a[x+1];
+            a[x+1] = temp;
+        }
+        queue[0]--;
+        return queue[queue[0] + 2];
+    }
+    
+    static String prettyPrintQueue(int[] queue)
+    {
+        String s = "[";
+        for(int x = 1; x <= queue[0]; x++)
+            s += queue[x] + ",";
+        s += "]";
+        return s;
+    }
+    
+    static String dumpQueue(int[] queue)
+    {
+        String s = "{";
+        for(int x = 0; x < 101; x++)
+            s += queue[x] + ",";
+        s += "}";
+        return s;
+    }
+    
+    
   
 }
 
