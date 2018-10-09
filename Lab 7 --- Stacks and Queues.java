@@ -49,6 +49,23 @@ public class Main
         //Value of 5th dequeue = 1
         System.out.println(prettyPrintQueue(q));
         
+        //TASK 4
+        int[] parkingLot = createQueue();
+        //Yes, it is a good way to represent a line b/c the first one will have priority
+        dequeue(parkingLot); //Results in first car "parking" and removed from queue
+        System.out.println(prettyPrintQueue(parkingLot));
+        
+        //TASK 5
+        int[] tennisBall = createStack();
+        //A tennis player takes balls out of the tube for training practice
+        for(int x = 1; x < 10; x++)
+            push(tennisBall, x);
+        pop(tennisBall); //The 9th ball is taken out
+        System.out.println(prettyPrintStack(tennisBall));
+        
+        //TASK 6
+        
+        
     }
     
     static int[] createStack()
