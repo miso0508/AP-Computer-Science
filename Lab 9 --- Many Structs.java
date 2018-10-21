@@ -5,9 +5,15 @@ public class Main
   public static void main(String[] args)
   {
     Money m = new Money(0,0);
-    Money m = new Money(10,10);
+    Money m1 = new Money(10,10);
     ComplexNumber q = new ComplexNumber(1,2);
-    ComplexNumber q = new ComplexNumber(2,3);
+    ComplexNumber q1 = new ComplexNumber(2,3);
+    DateClass d = new DateClass(1,2,3);
+    DateClass d1 = new DateClass(3,4,5);
+    CreditCardAccount cca = new CreditCardAccount(12345, "bob");
+    CreditCardAccount cca1 = new CreditCardAccount(123456, "joe");
+    Fraction f = new Fraction(1,2);
+    Fraction f1 = new Fraction(2,3);
   }
 }
 
