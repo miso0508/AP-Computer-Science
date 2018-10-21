@@ -5,7 +5,9 @@ public class Main
   public static void main(String[] args)
   {
     Money m = new Money(0,0);
-    Point p = new Point(0,0);
+    Money m = new Money(10,10);
+    ComplexNumber q = new ComplexNumber(1,2);
+    ComplexNumber q = new ComplexNumber(2,3);
   }
 }
 
@@ -221,5 +223,10 @@ public class Deck
     for(int e = 0; e < suit.length; e++) {
       d[index++] = new Card(f[i],suit[e]);
     }
+  }
+  public String getCard()
+  {
+    Random c = new Random();
+    return d[c.nextInt(51) + 0].get();
   }
 }
