@@ -4,7 +4,9 @@ public class Main
 {
   public static void main(String[] args)
   {
-    
+    Money m1 = new Money(123,25);
+    Money m2 = new Money(51,99);
+    Money m3 = new Money(0,1);
   }
 }
 
@@ -13,12 +15,8 @@ public class Money
   private double dollars, cents;
   public Money(double dollars, double cents)
   {
-    if(cents > 99) {
-      dollars += cents / 100;
-      cents = cents % 100;
-    }
-    this.dollars = dollars;
-    this.cents = cents;
+    this.dollars += cents / 100;
+    this.cents += cents % 100;
   }
   public double getDollars()
   {
@@ -84,5 +82,31 @@ public class Money
       this.dollars = this.dollars / 100;
       this.cents = this.dollars * 100 % 100;
     }
+  }
+  public void mult(int multiplier)
+  {
+    this.cents += this.dollars * 100;
+    this.cents *= multiplier;
+    this.dollars = this.cents / 100;
+    this.cents = this.cents % 100;
+  }
+  public Money changeFrom20()
+  {
+    this.cents = this.dollars * 100;
+    this.dollars = 0;
+    this.cents = (20 * 100) - this.cents;
+    this.dollars = this.cents / 100;
+    this.cents = this.cents % 100;
+  }
+  public String toStr()
+  {
+    return "$" + dollars + "." + cents;
+  }
+  public String toEnglish()
+  {
+    String[] ones = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    String[] tens = {"","Ten","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+    String m = ones[dollars/100] + "hundred and " + tens[dollars%100/10] + " " + ones[dollars%10] + "dollars and " + tens[cents/10] + " " + ones[cents%10] + " cents";
+    return m;
   }
 }
