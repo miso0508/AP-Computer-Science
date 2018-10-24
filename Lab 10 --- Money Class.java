@@ -7,6 +7,22 @@ public class Main
     Money m1 = new Money(123,25);
     Money m2 = new Money(51,99);
     Money m3 = new Money(0,1);
+    Money m4 = new Money(0,0);
+    m4.add(m1);
+    m4.add(m2);
+    m4.add(m3);
+    Money[] money = new Money[14];
+    money[0] = m1;
+    money[1] = m2;
+    money[3] = m3;
+    money[4] = m4;
+    for(int e = 1; e <= 9; e++) {
+      Money money[e + 4] = new Money(e*10,e*11);
+    }
+    money[13] = new Money(0,0);
+    for(int x = 5; x < 13;  x++) {
+      money[13].add(money[x]);
+    }
   }
 }
 
