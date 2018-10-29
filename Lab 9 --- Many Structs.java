@@ -38,6 +38,9 @@ public class Money
 public class ComplexNumber
 {
   double a, b;
+  public ComplexNumber()
+  {
+  }
   public ComplexNumber(double a, double b)
   {
     this.a = a;
@@ -84,6 +87,9 @@ public class ComplexNumber
 public class DateClass
 {
   int day, month, year;
+  public DateClass()
+  {
+  }
   public DateClass(int day, int month, int year) 
   {
     this.day = day;
@@ -105,6 +111,9 @@ public class CreditCardAccount
 {
   int number;
   String name;
+  public CreditCardAccount()
+  {
+  }
   public CreditCardAccount(int number, String name) 
   {
     this.number = number;
@@ -123,6 +132,9 @@ public class CreditCardAccount
 public class Fraction
 {
   int num, den;
+  public Fraction()
+  {
+  }
   public Fraction(int num, int den)
   {
     this.num = num;
@@ -141,6 +153,14 @@ public class Fraction
 public class DoubleClass
 {
   double exponent, mantissa;
+  public DoubleClass()
+  {
+  }
+  public DoubleClass(double e, double m)
+  {
+    exponent = e;
+    mantissa = m;
+  }
   public double get()
   {
     return Math.pow(2,exponent) * mantissa;
@@ -154,6 +174,9 @@ public class DoubleClass
 public class Point
 {
   double x,y;
+  public Point()
+  {
+  }
   public Point(double x, double y)
   {
     this.x = x;
@@ -171,6 +194,9 @@ public class Point
 public class StudentRecord
 {
   String name;
+  public StudentRecord()
+  {
+  }
   public StudentRecord(String name)
   {
     this.name = name;
@@ -188,6 +214,9 @@ public class Circle
 {
   double r,x,y;
   Point center = new Point(x,y);
+  public Circle()
+  {
+  }
   public Circle(double x, double y, double r)
   {
     this.x = x;
@@ -210,6 +239,9 @@ public class LineSegment
   double x1,y1,x2,y2;
   Point ep1 = new Point(x1,y1);
   Point ep2 = new Point(x2,y2);
+  public LineSegment()
+  {
+  }
   public LineSegment(double x1, double y1, double x2, double y2)
   {
     this.x1 = x1;
@@ -232,6 +264,9 @@ public class LineSegment
 public class Card
 {
   String face, suit;
+  public Card()
+  {
+  }
   public Card(String face, String suit)
   {
     this.face = face;
@@ -251,6 +286,9 @@ public class Deck
 {
   private int index = 0;
   Card[] d = new Card[52];
+  public Deck()
+  {
+  }
   String[] f = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
   String suit = {"Heart","Diamond","Spade","Clover"};
   for(int i = 0; i < f.length; i++) {
