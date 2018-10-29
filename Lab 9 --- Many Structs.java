@@ -52,6 +52,34 @@ public class ComplexNumber
     this.a = a;
     this.b = b;
   }
+  public void add(Complex e)
+  {
+    this.a += e.a;
+    this.b += e.b;
+  }
+  public Complex sum(Complex e)
+  {
+    return new Complex(this.a + e.a, this.b + e.b);
+  }
+  public void makeNegative()
+  {
+    this.a *= -1;
+    this.b *= -1;
+  }
+  public Complex negative()
+  {
+    return new Complex(-this.a,-this.b);
+  }
+  public void subtract(Complex e)
+  {
+    this.a -= e.a;
+    this.b -= e.b;
+  }
+  public Complex difference(Complex e)
+  {
+    return new Complex(this.a - e.a, this.b - e.b);
+  }
+  
 }
 public class DateClass
 {
