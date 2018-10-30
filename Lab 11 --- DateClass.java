@@ -19,7 +19,11 @@ public class DateClass
   }
   public DateClass(int mmddyyyy)
   {
-    
+    int m,d,y;
+    m = mmddyyyy / 1000000;
+    d = mmddyyyy / 10000 % 100;
+    y = mmddyyyy % 10000;
+    if((m == 2 && d > 28)  || (m == 1 && m > 31) || (m > 2 && m 
   }
   public String get()
   {
