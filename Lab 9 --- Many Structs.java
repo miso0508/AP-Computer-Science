@@ -19,20 +19,102 @@ public class Main
 
 public class Money
 {
-  int dollars, cents;
-  public Money(int dollars, int cents)
+  private double dollars, cents;
+  public Money(double dollars, double cents)
   {
-    this.dollars = dollars;
-    this.cents = cents;
+    this.dollars += cents / 100;
+    this.cents += cents % 100;
   }
-  public String get()
+  public double getDollars()
   {
-    return dollars + "." cents;
+    return dollars;
   }
-  public void set(int dollars, int cents)
+  public void setDollars(double d)
   {
-    this.dollars = dollars;
-    this.cents = cents;
+    dollars = d;
+  }
+  public double getCents()
+  {
+    return cents;
+  }
+  public void setCents(double c)
+  {
+    cents = c;
+  }
+  public boolean isGreaterThan(Money m)
+  {
+    if(this.dollars > m.dollars)
+      return true;
+    if(this.dollars < m.dollars)
+      return false;
+    if(this.dollars == m.dollars) {
+      if(this.cents > m.cents)
+        return true;
+      else return false;
+    }
+  }
+  public boolean isLessThan(Money m)
+  {
+    if(isGreaterThan(m) == true)
+      return false;
+    else return true;
+  }
+  public boolean isBigMoney()
+  {
+    if(this.dollars > 100)
+      return true;
+    if(this.dollars < 100)
+      return false;
+    if(this.dollars == 100) {
+      if(this.cents > 0) return true;
+      else return false;
+    }
+  }
+  public void add(Money m)
+  {
+    this.dollars += m.dollars;
+    this.cents += m.cents;
+    if(this.cents >= 100) {
+      this.dollars += this.cents / 100;
+      this.cents = this.cents % 100;
+    }
+  }
+  public void sub(Money m)
+  {
+    this.dollars -= m.dollars;
+    this.cents -= m.cents;
+    if(this.cents < 0) {
+      this.dollars += (this.dollars * 100) + this.cents;
+      this.cents = 0;
+      this.dollars = this.dollars / 100;
+      this.cents = this.dollars * 100 % 100;
+    }
+  }
+  public void mult(int multiplier)
+  {
+    this.cents += this.dollars * 100;
+    this.cents *= multiplier;
+    this.dollars = this.cents / 100;
+    this.cents = this.cents % 100;
+  }
+  public Money changeFrom20()
+  {
+    this.cents = this.dollars * 100;
+    this.dollars = 0;
+    this.cents = (20 * 100) - this.cents;
+    this.dollars = this.cents / 100;
+    this.cents = this.cents % 100;
+  }
+  public String toStr()
+  {
+    return "$" + dollars + "." + cents;
+  }
+  public String toEnglish()
+  {
+    String[] ones = {"Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"};
+    String[] tens = {"","Ten","Twenty","Thirty","Fourty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+    String m = ones[dollars/100] + "hundred and " + tens[dollars%100/10] + " " + ones[dollars%10] + "dollars and " + tens[cents/10] + " " + ones[cents%10] + " cents";
+    return m;
   }
 }
 public class ComplexNumber
@@ -81,8 +163,7 @@ public class ComplexNumber
   public Complex difference(Complex e)
   {
     return new Complex(this.a - e.a, this.b - e.b);
-  }
-  
+  }  
 }
 public class DateClass
 {
@@ -90,11 +171,15 @@ public class DateClass
   public DateClass()
   {
   }
-  public DateClass(int day, int month, int year) 
+  public DateClass(int month, int day, int year) 
   {
     this.day = day;
     this.month = month;
     this.year = year;
+  }
+  public DateClass(int mmddyyyy)
+  {
+    
   }
   public String get()
   {
