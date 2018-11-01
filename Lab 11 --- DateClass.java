@@ -43,12 +43,68 @@ public class DateClass
     this.month = month;
     this.year = year;
   }
-  public boolean isLeapYear(DateClass date)
+  public String monthName()
   {
-    boolean isleapyear = false;
-    if(date.year % 4 == 0) {
-      isleapyear = true;
-      if(date.year % 100 == 0 && date.year
-    }
+    String[] month = {"","January","February","March","April","May","June","July","August","September","October","November","December"};
+    return month[this.month];
   }
+  public String toStr()
+  {
+    m = mmddyyyy / 1000000;
+    d = mmddyyyy / 10000 % 100;
+    y = mmddyyyy % 10000;
+    String str = monthName(m) + "," + d + "," + y;
+  }
+  public boolean isLastDayOfMonth()
+  {
+    int m = this.month;
+    int d = this.day;
+    if(m == 2 && d == 28)
+      return true;
+    if(m == 2 && d != 28)
+      return false;
+    if(m == 1 && d == 31)
+      return true;
+    if(m == 1 && d != 31)
+      return false;
+    if((m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && d == 31)
+      return true;
+    if((m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) && d != 31)
+      return false;
+    if((m == 4 || m == 6 || m == 9 || m == 8 || m == 11) && d == 30)
+      return true;
+    if((m == 4 || m == 6 || m == 9 || m == 8 || m == 11) && d != 30)
+      return false;
+    return false;
+  }
+  public boolean isBefore(DateClass d)
+  {
+    if(d.year < this.year)
+      return true;
+    if(d.year == this.year) {
+      if(d.month < this.month)
+        return true;
+      if(d.month == this.month) {
+        if(d.day < this.day)
+          return truel
+        if(d.day == this.day)
+          return false;
+      }
+    }
+    return false;
+  }
+  public boolean isAfter(DateClass d) {
+    if(isBefore(d) == false)
+      return true;
+    else
+      return false;
+  }
+  public boolean isSameDate(DateClass d) 
+  {
+    if(d.year == year && d.month == month && d.day == day)
+      return true;
+    else return false;
+  }
+  
+
 }
