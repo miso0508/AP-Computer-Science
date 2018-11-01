@@ -105,6 +105,12 @@ public class DateClass
       return true;
     else return false;
   }
-  
-
+  public boolean isLeapYear()
+  {
+    
+  }
+  public DateClass nextDate()
+  {
+    
+  }
 }
