@@ -54,6 +54,10 @@ public class Main
     String flight_num;
     public Airplane() {
     }
+    public Airplane(String num, int s, int p, int sp, Point c, Point d) {
+      super.(int s, int p, int sp, Point c, Point d);
+      flight_num = num;
+    }
     
   }
 }
