@@ -24,8 +24,10 @@ class Main {
     }
     q.get(0).add(new Circle(1));
     q.get(0).add(new Circle(1));
+    int f = 0;
     for(int x = 0; x < 50; x++) {
       for(int y = 0; y < 3; y++) {
+        q.get(x).add(new Circle(fib[f++]));
       }
     }
   }
