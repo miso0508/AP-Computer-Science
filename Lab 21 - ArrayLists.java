@@ -43,8 +43,7 @@ class Square {
 }
 
 class Circle {
-  public int r;
-  public Circle(int radius) { r = radius; }
+  public Circle(int radius) {}
 }
 
 class QueueAL <E> implements printable {
